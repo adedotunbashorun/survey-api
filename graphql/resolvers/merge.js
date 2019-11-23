@@ -6,7 +6,7 @@ const transformUser = async user => {
     return {
         ...user._doc,
         _id: user.id,
-        createdEvents: events.bind(this, user._doc.createdEvents)
+        createdSurveys: surveys.bind(this, user._doc.createdSurveys)
     }
 }
 
@@ -43,7 +43,7 @@ const surveys = async(surveyIds) => {
 const singleSurvey = async(surveyId) => {
     try {
         let survey = await Survey.findById(surveyId);
-        return await transformEvent(survey);
+        return await transformSurvey(survey);
     } catch (error) {
         throw error 
     }
@@ -55,7 +55,7 @@ const user = async(userId) => {
         return {
             ...user._doc,
             _id: user.id,
-            createdEvents: await events.bind(this, user.createdEvents)
+            createdSurveys: await surveys.bind(this, user.createdSurveys)
         }
     } catch (error) {
       throw error  

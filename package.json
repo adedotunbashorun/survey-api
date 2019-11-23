@@ -1,7 +1,7 @@
 {
-  "name": "event-booking",
+  "name": "survey",
   "version": "1.0.0",
-  "description": "an event booking applicatioon using graphql, react and mongoose",
+  "description": "a survey applicatioon using graphql and mongoose",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

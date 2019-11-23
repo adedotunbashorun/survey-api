@@ -36,8 +36,8 @@ mongoose
   })
   .then(() => {
     app.listen(8000);
-    console.log(`we're live at port:8000`)
-  })
-  .catch(error => {
-    console.error(error);
-  });
+    console.log(`we're live at port:8000`);
+})
+.catch((error) => {
+    console.error(error.message)
+})
