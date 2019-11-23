@@ -28,11 +28,16 @@ app.use('/graphql', graphqlHttp({
     graphiql: true
 }));
 
-mongoose.connect(`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0-twi1m.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`, 
-{ useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
-.then(() =>{
+mongoose
+  .connect(`mongodb://127.0.0.1:27017/survey-app`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+  })
+  .then(() => {
     app.listen(8000);
-})
-.catch((error) => {
-    console.error(error)
-})
+    console.log(`we're live at port:8000`)
+  })
+  .catch(error => {
+    console.error(error);
+  });
