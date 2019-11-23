@@ -14,7 +14,7 @@ module.exports = buildSchema(`
         _id: ID!
         question1: String!
         question2: String!
-        question3: Float!
+        question3: String!
         question4: String!
         question5: String!
         creator: User!
@@ -25,7 +25,7 @@ module.exports = buildSchema(`
         _id: ID!
         email: String!
         password: String
-        createdEvents: [Event!]
+        createdSurveys: [Survey!]
         createdUserData:[UserData!]
     }
 
@@ -41,7 +41,7 @@ module.exports = buildSchema(`
         question2: String!
         question3: String!
         question4: String!
-        question4: String!
+        question5: String!
         creator: String
         userdata: String
     }
@@ -56,7 +56,7 @@ module.exports = buildSchema(`
     input UserInput {
         email: String!
         password: String
-        createdEvents: String
+        createdSurveys: String
     }
 
     type RootQuery {

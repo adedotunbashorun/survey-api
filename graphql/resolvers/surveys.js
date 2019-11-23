@@ -6,10 +6,10 @@ const { userVerified } = require('../../helpers/is-verified');
 module.exports = {
     surveys: async(args, req) => {
         try {
-            // userVerified(req);
+            userVerified(req);
             let surveys = await Survey.find();
             return surveys.map(async(survey) => {
-                return await transformEvent(survey);
+                return await transformSurvey(survey);
             });
         } catch (error) {
             throw error;

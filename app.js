@@ -34,5 +34,5 @@ mongoose.connect(`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONG
     app.listen(8000);
 })
 .catch((error) => {
-    console.error(error)
+    console.error(error.message)
 })
