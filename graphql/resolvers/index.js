@@ -1,3 +1,4 @@
+
 const authResolver = require('./auth');
 const userdataResolver = require('./userdata');
 const surveysResolver = require('./surveys');
