@@ -1,4 +1,5 @@
 const Survey = require('../../models/survey');
+const Question = require('../../models/question');
 const User = require('../../models/user');
 const UserData = require('../../models/userdata');
 
@@ -15,6 +16,13 @@ const transformSurvey = async survey => {
         ...survey._doc,
         _id: survey.id,
         creator: await user.bind(this, survey._doc.creator)
+    };
+}
+const transformQuestion = async question => {
+    return {
+        ...question._doc,
+        _id: question.id,
+        creator: await user.bind(this, question._doc.creator)
     };
 }
 
@@ -39,11 +47,30 @@ const surveys = async(surveyIds) => {
         throw error 
     }
 }
+const questions = async(questionIds) => {
+    try {
+        let questions = await Question.find({_id: { $in: questionIds}});
+        return questions.map(async(question) => {
+            return await transformQuestion(question);
+        })
+    } catch (error) {
+        throw error 
+    }
+}
 
 const singleSurvey = async(surveyId) => {
     try {
         let survey = await Survey.findById(surveyId);
         return await transformSurvey(survey);
+    } catch (error) {
+        throw error 
+    }
+}
+
+const singleQuestion = async(questionId) => {
+    try {
+        let question = await Question.findById(questionId);
+        return await transformQuestion(question);
     } catch (error) {
         throw error 
     }
@@ -75,9 +102,12 @@ const userdata = async() => {
 
 
 exports.surveys = surveys;
+exports.questions = questions;
 exports.singleSurvey = singleSurvey;
+exports.singleQuestion = singleQuestion;
 exports.user = user;
 exports.userdata = userdata;
 exports.transformSurvey = transformSurvey;
+exports.transformQuestion = transformQuestion;
 exports.transformUserdata = transformUserdata;
 exports.transformUser = transformUser;
