@@ -7,7 +7,12 @@ const isAuth = require("./middleware/is-auth");
 const resolver = require("./graphql/resolvers");
 
 const { Cors } = require('./middleware/cors');
-
+mongoose
+  .connect(`mongodb://127.0.0.1:27017/survey-app`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+  })
 const app = express();
 
 app.use(bodyParser.json());
@@ -26,16 +31,5 @@ app.use(
   })
 );
 
-mongoose
-  .connect(`mongodb://127.0.0.1:27017/survey-app`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true
-  })
-  .then(() => {
-    app.listen(8000);
-    console.log(`we're live at port:8000`);
-  })
-  .catch(error => {
-    console.error(error.message);
-  });
+
+module.exports = app;

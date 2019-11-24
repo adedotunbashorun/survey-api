@@ -2,7 +2,7 @@
   "name": "survey",
   "version": "1.0.0",
   "description": "a survey applicatioon using graphql and mongoose",
-  "main": "app.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"
