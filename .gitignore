@@ -1,2 +1,6 @@
 nodemon.json
 node_modules
+config.js
+.openode
+docker-compose.yml
+Dockerfile
