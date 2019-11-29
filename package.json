@@ -2,10 +2,10 @@
   "name": "survey",
   "version": "1.0.0",
   "description": "a survey applicatioon using graphql and mongoose",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node src/index.js"
   },
   "author": "adedotun olawale",
   "license": "MIT",

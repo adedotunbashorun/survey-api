@@ -12,11 +12,7 @@ module.exports = buildSchema(`
 
     type Survey {
         _id: ID!
-        question1: String!
-        question2: String!
-        question3: String!
-        question4: String!
-        question5: String!
+        answer: String!
         creator: User!
         userdata: UserData!
     }
@@ -37,11 +33,7 @@ module.exports = buildSchema(`
     }
 
     input SurveyInput {
-        question1: String!
-        question2: String!
-        question3: String!
-        question4: String!
-        question5: String!
+        answer: String!
         creator: String
         userdata: String
     }

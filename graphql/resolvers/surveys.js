@@ -20,11 +20,7 @@ module.exports = {
         try {
             userVerified(req);
             const survey =  new Survey({
-                question1: args.surveyInput.question1,
-                question2: args.surveyInput.question2,
-                question3: args.surveyInput.question3,
-                question4: args.surveyInput.question4,
-                question5: args.surveyInput.question5,
+                answer: args.surveyInput.answer,
                 creator: req.userId,
                 userdata: args.surveyInput.userdata
             });
