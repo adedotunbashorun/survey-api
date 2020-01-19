@@ -15,6 +15,12 @@ const UserSchema = new Schema({
             ref: 'Survey'
         }
     ],
+    createdQuestions: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Question'
+        }
+    ],
     createdUserData: [
         {
             type: Schema.Types.ObjectId,

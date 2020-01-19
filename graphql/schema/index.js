@@ -17,6 +17,17 @@ module.exports = buildSchema(`
         userdata: UserData!
     }
 
+    type Question {
+        _id: ID!
+        question1: String!
+        question2: String!
+        question3: String!
+        question4: String!
+        question5: String!
+        creator: User!
+        userdata: UserData!
+    }
+
     type User {
         _id: ID!
         email: String!
